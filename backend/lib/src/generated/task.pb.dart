@@ -9,12 +9,11 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
-import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'google/protobuf/timestamp.pb.dart' as $0;
+import 'google/protobuf/timestamp.pb.dart' as $1;
 import 'task.pbenum.dart';
 
 export 'task.pbenum.dart';
@@ -27,9 +26,9 @@ class Task extends $pb.GeneratedMessage {
     $core.bool? done,
     Priority? priority,
     Status? status,
-    $0.Timestamp? createAt,
-    $0.Timestamp? updateAt,
-    $0.Timestamp? lastUpdateAt,
+    $1.Timestamp? createAt,
+    $1.Timestamp? updateAt,
+    $1.Timestamp? lastUpdateAt,
     TaskUser? user,
     $core.Iterable<Task>? assignedUsers,
     User? lastUpdatedUser,
@@ -92,9 +91,9 @@ class Task extends $pb.GeneratedMessage {
     ..aOB(4, _omitFieldNames ? '' : 'done')
     ..e<Priority>(5, _omitFieldNames ? '' : 'priority', $pb.PbFieldType.OE, defaultOrMaker: Priority.LOW, valueOf: Priority.valueOf, enumValues: Priority.values)
     ..e<Status>(6, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: Status.TODO, valueOf: Status.valueOf, enumValues: Status.values)
-    ..aOM<$0.Timestamp>(7, _omitFieldNames ? '' : 'createAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(8, _omitFieldNames ? '' : 'updateAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(9, _omitFieldNames ? '' : 'lastUpdateAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$1.Timestamp>(7, _omitFieldNames ? '' : 'createAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(8, _omitFieldNames ? '' : 'updateAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(9, _omitFieldNames ? '' : 'lastUpdateAt', subBuilder: $1.Timestamp.create)
     ..aOM<TaskUser>(10, _omitFieldNames ? '' : 'user', subBuilder: TaskUser.create)
     ..pc<Task>(11, _omitFieldNames ? '' : 'assignedUsers', $pb.PbFieldType.PM, subBuilder: Task.create)
     ..aOM<User>(12, _omitFieldNames ? '' : 'lastUpdatedUser', subBuilder: User.create)
@@ -180,37 +179,37 @@ class Task extends $pb.GeneratedMessage {
   void clearStatus() => clearField(6);
 
   @$pb.TagNumber(7)
-  $0.Timestamp get createAt => $_getN(6);
+  $1.Timestamp get createAt => $_getN(6);
   @$pb.TagNumber(7)
-  set createAt($0.Timestamp v) { setField(7, v); }
+  set createAt($1.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasCreateAt() => $_has(6);
   @$pb.TagNumber(7)
   void clearCreateAt() => clearField(7);
   @$pb.TagNumber(7)
-  $0.Timestamp ensureCreateAt() => $_ensure(6);
+  $1.Timestamp ensureCreateAt() => $_ensure(6);
 
   @$pb.TagNumber(8)
-  $0.Timestamp get updateAt => $_getN(7);
+  $1.Timestamp get updateAt => $_getN(7);
   @$pb.TagNumber(8)
-  set updateAt($0.Timestamp v) { setField(8, v); }
+  set updateAt($1.Timestamp v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasUpdateAt() => $_has(7);
   @$pb.TagNumber(8)
   void clearUpdateAt() => clearField(8);
   @$pb.TagNumber(8)
-  $0.Timestamp ensureUpdateAt() => $_ensure(7);
+  $1.Timestamp ensureUpdateAt() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $0.Timestamp get lastUpdateAt => $_getN(8);
+  $1.Timestamp get lastUpdateAt => $_getN(8);
   @$pb.TagNumber(9)
-  set lastUpdateAt($0.Timestamp v) { setField(9, v); }
+  set lastUpdateAt($1.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasLastUpdateAt() => $_has(8);
   @$pb.TagNumber(9)
   void clearLastUpdateAt() => clearField(9);
   @$pb.TagNumber(9)
-  $0.Timestamp ensureLastUpdateAt() => $_ensure(8);
+  $1.Timestamp ensureLastUpdateAt() => $_ensure(8);
 
   /// The user who created the task.
   @$pb.TagNumber(10)
@@ -536,8 +535,8 @@ class Comment extends $pb.GeneratedMessage {
   factory Comment({
     $core.int? id,
     $core.String? text,
-    $0.Timestamp? createAt,
-    $0.Timestamp? updateAt,
+    $1.Timestamp? createAt,
+    $1.Timestamp? updateAt,
     TaskUser? user,
   }) {
     final $result = create();
@@ -565,8 +564,8 @@ class Comment extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Comment', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'text')
-    ..aOM<$0.Timestamp>(3, _omitFieldNames ? '' : 'createAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(4, _omitFieldNames ? '' : 'updateAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$1.Timestamp>(3, _omitFieldNames ? '' : 'createAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'updateAt', subBuilder: $1.Timestamp.create)
     ..aOM<TaskUser>(5, _omitFieldNames ? '' : 'user', subBuilder: TaskUser.create)
     ..hasRequiredFields = false
   ;
@@ -611,26 +610,26 @@ class Comment extends $pb.GeneratedMessage {
   void clearText() => clearField(2);
 
   @$pb.TagNumber(3)
-  $0.Timestamp get createAt => $_getN(2);
+  $1.Timestamp get createAt => $_getN(2);
   @$pb.TagNumber(3)
-  set createAt($0.Timestamp v) { setField(3, v); }
+  set createAt($1.Timestamp v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasCreateAt() => $_has(2);
   @$pb.TagNumber(3)
   void clearCreateAt() => clearField(3);
   @$pb.TagNumber(3)
-  $0.Timestamp ensureCreateAt() => $_ensure(2);
+  $1.Timestamp ensureCreateAt() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $0.Timestamp get updateAt => $_getN(3);
+  $1.Timestamp get updateAt => $_getN(3);
   @$pb.TagNumber(4)
-  set updateAt($0.Timestamp v) { setField(4, v); }
+  set updateAt($1.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasUpdateAt() => $_has(3);
   @$pb.TagNumber(4)
   void clearUpdateAt() => clearField(4);
   @$pb.TagNumber(4)
-  $0.Timestamp ensureUpdateAt() => $_ensure(3);
+  $1.Timestamp ensureUpdateAt() => $_ensure(3);
 
   @$pb.TagNumber(5)
   TaskUser get user => $_getN(4);
@@ -650,8 +649,8 @@ class Project extends $pb.GeneratedMessage {
     $core.int? id,
     $core.String? name,
     $core.String? description,
-    $0.Timestamp? createAt,
-    $0.Timestamp? updateAt,
+    $1.Timestamp? createAt,
+    $1.Timestamp? updateAt,
     $core.Iterable<TaskUser>? user,
   }) {
     final $result = create();
@@ -683,8 +682,8 @@ class Project extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'description')
-    ..aOM<$0.Timestamp>(4, _omitFieldNames ? '' : 'createAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(5, _omitFieldNames ? '' : 'updateAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$1.Timestamp>(4, _omitFieldNames ? '' : 'createAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(5, _omitFieldNames ? '' : 'updateAt', subBuilder: $1.Timestamp.create)
     ..pc<TaskUser>(6, _omitFieldNames ? '' : 'user', $pb.PbFieldType.PM, subBuilder: TaskUser.create)
     ..hasRequiredFields = false
   ;
@@ -738,26 +737,26 @@ class Project extends $pb.GeneratedMessage {
   void clearDescription() => clearField(3);
 
   @$pb.TagNumber(4)
-  $0.Timestamp get createAt => $_getN(3);
+  $1.Timestamp get createAt => $_getN(3);
   @$pb.TagNumber(4)
-  set createAt($0.Timestamp v) { setField(4, v); }
+  set createAt($1.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasCreateAt() => $_has(3);
   @$pb.TagNumber(4)
   void clearCreateAt() => clearField(4);
   @$pb.TagNumber(4)
-  $0.Timestamp ensureCreateAt() => $_ensure(3);
+  $1.Timestamp ensureCreateAt() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $0.Timestamp get updateAt => $_getN(4);
+  $1.Timestamp get updateAt => $_getN(4);
   @$pb.TagNumber(5)
-  set updateAt($0.Timestamp v) { setField(5, v); }
+  set updateAt($1.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasUpdateAt() => $_has(4);
   @$pb.TagNumber(5)
   void clearUpdateAt() => clearField(5);
   @$pb.TagNumber(5)
-  $0.Timestamp ensureUpdateAt() => $_ensure(4);
+  $1.Timestamp ensureUpdateAt() => $_ensure(4);
 
   @$pb.TagNumber(6)
   $core.List<TaskUser> get user => $_getList(5);
@@ -928,11 +927,11 @@ class TaskFilter extends $pb.GeneratedMessage {
     $core.int? lastUpdatedUserId,
     $core.int? commentUserId,
     $core.String? commentText,
-    $0.Timestamp? createAt,
-    $0.Timestamp? updateAt,
-    $0.Timestamp? lastUpdateAt,
-    $0.Timestamp? commentCreateAt,
-    $0.Timestamp? commentUpdateAt,
+    $1.Timestamp? createAt,
+    $1.Timestamp? updateAt,
+    $1.Timestamp? lastUpdateAt,
+    $1.Timestamp? commentCreateAt,
+    $1.Timestamp? commentUpdateAt,
   }) {
     final $result = create();
     if (title != null) {
@@ -989,11 +988,11 @@ class TaskFilter extends $pb.GeneratedMessage {
     ..a<$core.int>(9, _omitFieldNames ? '' : 'lastUpdatedUserId', $pb.PbFieldType.O3)
     ..a<$core.int>(10, _omitFieldNames ? '' : 'commentUserId', $pb.PbFieldType.O3)
     ..aOS(11, _omitFieldNames ? '' : 'commentText')
-    ..aOM<$0.Timestamp>(12, _omitFieldNames ? '' : 'createAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(13, _omitFieldNames ? '' : 'updateAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(14, _omitFieldNames ? '' : 'lastUpdateAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(15, _omitFieldNames ? '' : 'commentCreateAt', subBuilder: $0.Timestamp.create)
-    ..aOM<$0.Timestamp>(16, _omitFieldNames ? '' : 'commentUpdateAt', subBuilder: $0.Timestamp.create)
+    ..aOM<$1.Timestamp>(12, _omitFieldNames ? '' : 'createAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(13, _omitFieldNames ? '' : 'updateAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(14, _omitFieldNames ? '' : 'lastUpdateAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(15, _omitFieldNames ? '' : 'commentCreateAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(16, _omitFieldNames ? '' : 'commentUpdateAt', subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -1091,59 +1090,59 @@ class TaskFilter extends $pb.GeneratedMessage {
   void clearCommentText() => clearField(11);
 
   @$pb.TagNumber(12)
-  $0.Timestamp get createAt => $_getN(8);
+  $1.Timestamp get createAt => $_getN(8);
   @$pb.TagNumber(12)
-  set createAt($0.Timestamp v) { setField(12, v); }
+  set createAt($1.Timestamp v) { setField(12, v); }
   @$pb.TagNumber(12)
   $core.bool hasCreateAt() => $_has(8);
   @$pb.TagNumber(12)
   void clearCreateAt() => clearField(12);
   @$pb.TagNumber(12)
-  $0.Timestamp ensureCreateAt() => $_ensure(8);
+  $1.Timestamp ensureCreateAt() => $_ensure(8);
 
   @$pb.TagNumber(13)
-  $0.Timestamp get updateAt => $_getN(9);
+  $1.Timestamp get updateAt => $_getN(9);
   @$pb.TagNumber(13)
-  set updateAt($0.Timestamp v) { setField(13, v); }
+  set updateAt($1.Timestamp v) { setField(13, v); }
   @$pb.TagNumber(13)
   $core.bool hasUpdateAt() => $_has(9);
   @$pb.TagNumber(13)
   void clearUpdateAt() => clearField(13);
   @$pb.TagNumber(13)
-  $0.Timestamp ensureUpdateAt() => $_ensure(9);
+  $1.Timestamp ensureUpdateAt() => $_ensure(9);
 
   @$pb.TagNumber(14)
-  $0.Timestamp get lastUpdateAt => $_getN(10);
+  $1.Timestamp get lastUpdateAt => $_getN(10);
   @$pb.TagNumber(14)
-  set lastUpdateAt($0.Timestamp v) { setField(14, v); }
+  set lastUpdateAt($1.Timestamp v) { setField(14, v); }
   @$pb.TagNumber(14)
   $core.bool hasLastUpdateAt() => $_has(10);
   @$pb.TagNumber(14)
   void clearLastUpdateAt() => clearField(14);
   @$pb.TagNumber(14)
-  $0.Timestamp ensureLastUpdateAt() => $_ensure(10);
+  $1.Timestamp ensureLastUpdateAt() => $_ensure(10);
 
   @$pb.TagNumber(15)
-  $0.Timestamp get commentCreateAt => $_getN(11);
+  $1.Timestamp get commentCreateAt => $_getN(11);
   @$pb.TagNumber(15)
-  set commentCreateAt($0.Timestamp v) { setField(15, v); }
+  set commentCreateAt($1.Timestamp v) { setField(15, v); }
   @$pb.TagNumber(15)
   $core.bool hasCommentCreateAt() => $_has(11);
   @$pb.TagNumber(15)
   void clearCommentCreateAt() => clearField(15);
   @$pb.TagNumber(15)
-  $0.Timestamp ensureCommentCreateAt() => $_ensure(11);
+  $1.Timestamp ensureCommentCreateAt() => $_ensure(11);
 
   @$pb.TagNumber(16)
-  $0.Timestamp get commentUpdateAt => $_getN(12);
+  $1.Timestamp get commentUpdateAt => $_getN(12);
   @$pb.TagNumber(16)
-  set commentUpdateAt($0.Timestamp v) { setField(16, v); }
+  set commentUpdateAt($1.Timestamp v) { setField(16, v); }
   @$pb.TagNumber(16)
   $core.bool hasCommentUpdateAt() => $_has(12);
   @$pb.TagNumber(16)
   void clearCommentUpdateAt() => clearField(16);
   @$pb.TagNumber(16)
-  $0.Timestamp ensureCommentUpdateAt() => $_ensure(12);
+  $1.Timestamp ensureCommentUpdateAt() => $_ensure(12);
 }
 
 /// / Request to create a task.
@@ -1506,22 +1505,23 @@ class GetTaskRequest extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 }
 
-class TaskRequest extends $pb.GeneratedMessage {
-  factory TaskRequest({
-    Task? task,
+/// The request message containing the user's name.
+class HelloRequest extends $pb.GeneratedMessage {
+  factory HelloRequest({
+    $core.String? name,
   }) {
     final $result = create();
-    if (task != null) {
-      $result.task = task;
+    if (name != null) {
+      $result.name = name;
     }
     return $result;
   }
-  TaskRequest._() : super();
-  factory TaskRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory TaskRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  HelloRequest._() : super();
+  factory HelloRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory HelloRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TaskRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
-    ..aOM<Task>(1, _omitFieldNames ? '' : 'task', subBuilder: Task.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HelloRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'name')
     ..hasRequiredFields = false
   ;
 
@@ -1529,191 +1529,36 @@ class TaskRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  TaskRequest clone() => TaskRequest()..mergeFromMessage(this);
+  HelloRequest clone() => HelloRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  TaskRequest copyWith(void Function(TaskRequest) updates) => super.copyWith((message) => updates(message as TaskRequest)) as TaskRequest;
+  HelloRequest copyWith(void Function(HelloRequest) updates) => super.copyWith((message) => updates(message as HelloRequest)) as HelloRequest;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static TaskRequest create() => TaskRequest._();
-  TaskRequest createEmptyInstance() => create();
-  static $pb.PbList<TaskRequest> createRepeated() => $pb.PbList<TaskRequest>();
+  static HelloRequest create() => HelloRequest._();
+  HelloRequest createEmptyInstance() => create();
+  static $pb.PbList<HelloRequest> createRepeated() => $pb.PbList<HelloRequest>();
   @$core.pragma('dart2js:noInline')
-  static TaskRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TaskRequest>(create);
-  static TaskRequest? _defaultInstance;
+  static HelloRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HelloRequest>(create);
+  static HelloRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  Task get task => $_getN(0);
+  $core.String get name => $_getSZ(0);
   @$pb.TagNumber(1)
-  set task(Task v) { setField(1, v); }
+  set name($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasTask() => $_has(0);
+  $core.bool hasName() => $_has(0);
   @$pb.TagNumber(1)
-  void clearTask() => clearField(1);
-  @$pb.TagNumber(1)
-  Task ensureTask() => $_ensure(0);
+  void clearName() => clearField(1);
 }
 
-class AddResponse extends $pb.GeneratedMessage {
-  factory AddResponse({
-    Task? task,
-  }) {
-    final $result = create();
-    if (task != null) {
-      $result.task = task;
-    }
-    return $result;
-  }
-  AddResponse._() : super();
-  factory AddResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory AddResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AddResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
-    ..aOM<Task>(1, _omitFieldNames ? '' : 'task', subBuilder: Task.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  AddResponse clone() => AddResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  AddResponse copyWith(void Function(AddResponse) updates) => super.copyWith((message) => updates(message as AddResponse)) as AddResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static AddResponse create() => AddResponse._();
-  AddResponse createEmptyInstance() => create();
-  static $pb.PbList<AddResponse> createRepeated() => $pb.PbList<AddResponse>();
-  @$core.pragma('dart2js:noInline')
-  static AddResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AddResponse>(create);
-  static AddResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  Task get task => $_getN(0);
-  @$pb.TagNumber(1)
-  set task(Task v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasTask() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearTask() => clearField(1);
-  @$pb.TagNumber(1)
-  Task ensureTask() => $_ensure(0);
-}
-
-class GetResponse extends $pb.GeneratedMessage {
-  factory GetResponse({
-    $core.int? id,
-  }) {
-    final $result = create();
-    if (id != null) {
-      $result.id = id;
-    }
-    return $result;
-  }
-  GetResponse._() : super();
-  factory GetResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetResponse clone() => GetResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetResponse copyWith(void Function(GetResponse) updates) => super.copyWith((message) => updates(message as GetResponse)) as GetResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static GetResponse create() => GetResponse._();
-  GetResponse createEmptyInstance() => create();
-  static $pb.PbList<GetResponse> createRepeated() => $pb.PbList<GetResponse>();
-  @$core.pragma('dart2js:noInline')
-  static GetResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetResponse>(create);
-  static GetResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.int get id => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set id($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearId() => clearField(1);
-}
-
-class UdpateResponse extends $pb.GeneratedMessage {
-  factory UdpateResponse({
-    Task? task,
-  }) {
-    final $result = create();
-    if (task != null) {
-      $result.task = task;
-    }
-    return $result;
-  }
-  UdpateResponse._() : super();
-  factory UdpateResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UdpateResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UdpateResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
-    ..aOM<Task>(1, _omitFieldNames ? '' : 'task', subBuilder: Task.create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UdpateResponse clone() => UdpateResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UdpateResponse copyWith(void Function(UdpateResponse) updates) => super.copyWith((message) => updates(message as UdpateResponse)) as UdpateResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UdpateResponse create() => UdpateResponse._();
-  UdpateResponse createEmptyInstance() => create();
-  static $pb.PbList<UdpateResponse> createRepeated() => $pb.PbList<UdpateResponse>();
-  @$core.pragma('dart2js:noInline')
-  static UdpateResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UdpateResponse>(create);
-  static UdpateResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  Task get task => $_getN(0);
-  @$pb.TagNumber(1)
-  set task(Task v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasTask() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearTask() => clearField(1);
-  @$pb.TagNumber(1)
-  Task ensureTask() => $_ensure(0);
-}
-
-class DeleteResponse extends $pb.GeneratedMessage {
-  factory DeleteResponse({
+/// The response message containing the greetings
+class HelloReply extends $pb.GeneratedMessage {
+  factory HelloReply({
     $core.String? message,
   }) {
     final $result = create();
@@ -1722,11 +1567,11 @@ class DeleteResponse extends $pb.GeneratedMessage {
     }
     return $result;
   }
-  DeleteResponse._() : super();
-  factory DeleteResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DeleteResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  HelloReply._() : super();
+  factory HelloReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory HelloReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HelloReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false
   ;
@@ -1735,22 +1580,22 @@ class DeleteResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  DeleteResponse clone() => DeleteResponse()..mergeFromMessage(this);
+  HelloReply clone() => HelloReply()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  DeleteResponse copyWith(void Function(DeleteResponse) updates) => super.copyWith((message) => updates(message as DeleteResponse)) as DeleteResponse;
+  HelloReply copyWith(void Function(HelloReply) updates) => super.copyWith((message) => updates(message as HelloReply)) as HelloReply;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static DeleteResponse create() => DeleteResponse._();
-  DeleteResponse createEmptyInstance() => create();
-  static $pb.PbList<DeleteResponse> createRepeated() => $pb.PbList<DeleteResponse>();
+  static HelloReply create() => HelloReply._();
+  HelloReply createEmptyInstance() => create();
+  static $pb.PbList<HelloReply> createRepeated() => $pb.PbList<HelloReply>();
   @$core.pragma('dart2js:noInline')
-  static DeleteResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteResponse>(create);
-  static DeleteResponse? _defaultInstance;
+  static HelloReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HelloReply>(create);
+  static HelloReply? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get message => $_getSZ(0);
@@ -1760,24 +1605,6 @@ class DeleteResponse extends $pb.GeneratedMessage {
   $core.bool hasMessage() => $_has(0);
   @$pb.TagNumber(1)
   void clearMessage() => clearField(1);
-}
-
-class TaskGrpcServiceApi {
-  $pb.RpcClient _client;
-  TaskGrpcServiceApi(this._client);
-
-  $async.Future<AddResponse> addTask($pb.ClientContext? ctx, TaskRequest request) =>
-    _client.invoke<AddResponse>(ctx, 'TaskGrpcService', 'AddTask', request, AddResponse())
-  ;
-  $async.Future<GetResponse> getTask($pb.ClientContext? ctx, TaskRequest request) =>
-    _client.invoke<GetResponse>(ctx, 'TaskGrpcService', 'GetTask', request, GetResponse())
-  ;
-  $async.Future<UdpateResponse> updateTask($pb.ClientContext? ctx, TaskRequest request) =>
-    _client.invoke<UdpateResponse>(ctx, 'TaskGrpcService', 'UpdateTask', request, UdpateResponse())
-  ;
-  $async.Future<DeleteResponse> deleteTask($pb.ClientContext? ctx, TaskRequest request) =>
-    _client.invoke<DeleteResponse>(ctx, 'TaskGrpcService', 'DeleteTask', request, DeleteResponse())
-  ;
 }
 
 

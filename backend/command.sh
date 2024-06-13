@@ -3,7 +3,7 @@
 # OUTPUT_DIRECTORY = /src/generated
 # PROTO_DIRECTORY = lib/src/protos
 
-protoc -I=lib/src/protos lib/src/protos/*.proto --dart_out=lib/src/generated 
+protoc -I=lib/src/protos lib/src/protos/*.proto --dart_out=grpc:lib/src/generated google/protobuf/timestamp.proto
 # # PROTO_DIRECTORY: directory where the proto files are located
 
 # pwd

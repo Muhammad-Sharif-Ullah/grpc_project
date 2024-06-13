@@ -161,32 +161,16 @@ message GetTaskRequest {
 }
 
 
-service TaskGrpcService{
-  rpc AddTask(TaskRequest) returns (AddResponse);
-  rpc GetTask(TaskRequest) returns (GetResponse);
-  rpc UpdateTask(TaskRequest) returns (UdpateResponse);
-  rpc DeleteTask(TaskRequest) returns (DeleteResponse);
+
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
 }
 
-message TaskRequest{
-  Task task = 1;
-}
-
-message AddResponse{
-  Task task = 1;
-}
-
-message GetResponse{
-  int32 id = 1;
-}
-
-message UdpateResponse{
-  Task task = 1;
-}
-
-message DeleteResponse{
+// The response message containing the greetings
+message HelloReply {
   string message = 1;
 }
-
 
 

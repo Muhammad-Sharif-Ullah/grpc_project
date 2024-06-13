@@ -1,24 +1,41 @@
+import 'package:backend/src/services/greet_service.dart';
 import 'package:grpc/grpc.dart';
 
-Future<void> main(List<String?> args) async {
-  /// check if the arguments are passed in the command line or else use the default values
-  String argProt = args.isNotEmpty ? args[0] ?? "50051" : "50051";
-  String argHost = args.length > 1 ? args[1] ?? "localhost" : "localhost";
+// create server Interceptor
 
-  /// PORT
-  int port = int.parse(String.fromEnvironment('PORT', defaultValue: argProt));
-
-  /// HOST
-  String host = String.fromEnvironment('HOST', defaultValue: argHost);
-
-  ///Server instance
+Future<void> main(List<String> args) async {
   final server = Server.create(
-    services: [GreetService()],
+    services: [
+      GreeterService(),
+    ],
+    interceptors: [],
+    errorHandler: (error, stackTrace) {
+      print('Error: $error');
+      print(stackTrace);
+    },
+    codecRegistry: CodecRegistry(codecs: const [GzipCodec(), IdentityCodec()]),
   );
-  await server.serve(port: port, address: host).onError((error, stackTrace) {
-    print('Error: $error');
-    print('Stack Trace: $stackTrace');
-  }).then((value) {
-    print('Server started on port: $host:$port');
-  });
+  await server.serve(port: 50051);
+  server.lookupService('Greeter');
+  print('Server listening on port ${server.port}...');
+}
+
+class LoggingInterceptor {
+  dynamic interceptUnary(
+      String method, dynamic request, CallOptions options, dynamic invoker) {
+    print('LoggingInterceptor: interceptUnary');
+    print('Method: $method');
+    print('Request: $request');
+    print('Options: $options');
+    return invoker(method, request, options);
+  }
+
+  dynamic interceptStreaming(
+      String method, Stream request, CallOptions options, dynamic invoker) {
+    print('LoggingInterceptor: interceptStreaming');
+    print('Method: $method');
+    print('Request: $request');
+    print('Options: $options');
+    return invoker(method, request, options);
+  }
 }

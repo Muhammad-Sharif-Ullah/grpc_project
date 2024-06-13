@@ -13,8 +13,6 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-import 'google/protobuf/timestamp.pbjson.dart' as $0;
-
 @$core.Deprecated('Use priorityDescriptor instead')
 const Priority$json = {
   '1': 'Priority',
@@ -317,97 +315,27 @@ const GetTaskRequest$json = {
 final $typed_data.Uint8List getTaskRequestDescriptor = $convert.base64Decode(
     'Cg5HZXRUYXNrUmVxdWVzdBIOCgJpZBgBIAEoBVICaWQ=');
 
-@$core.Deprecated('Use taskRequestDescriptor instead')
-const TaskRequest$json = {
-  '1': 'TaskRequest',
+@$core.Deprecated('Use helloRequestDescriptor instead')
+const HelloRequest$json = {
+  '1': 'HelloRequest',
   '2': [
-    {'1': 'task', '3': 1, '4': 1, '5': 11, '6': '.task.Task', '10': 'task'},
+    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
   ],
 };
 
-/// Descriptor for `TaskRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List taskRequestDescriptor = $convert.base64Decode(
-    'CgtUYXNrUmVxdWVzdBIeCgR0YXNrGAEgASgLMgoudGFzay5UYXNrUgR0YXNr');
+/// Descriptor for `HelloRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List helloRequestDescriptor = $convert.base64Decode(
+    'CgxIZWxsb1JlcXVlc3QSEgoEbmFtZRgBIAEoCVIEbmFtZQ==');
 
-@$core.Deprecated('Use addResponseDescriptor instead')
-const AddResponse$json = {
-  '1': 'AddResponse',
-  '2': [
-    {'1': 'task', '3': 1, '4': 1, '5': 11, '6': '.task.Task', '10': 'task'},
-  ],
-};
-
-/// Descriptor for `AddResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List addResponseDescriptor = $convert.base64Decode(
-    'CgtBZGRSZXNwb25zZRIeCgR0YXNrGAEgASgLMgoudGFzay5UYXNrUgR0YXNr');
-
-@$core.Deprecated('Use getResponseDescriptor instead')
-const GetResponse$json = {
-  '1': 'GetResponse',
-  '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
-  ],
-};
-
-/// Descriptor for `GetResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getResponseDescriptor = $convert.base64Decode(
-    'CgtHZXRSZXNwb25zZRIOCgJpZBgBIAEoBVICaWQ=');
-
-@$core.Deprecated('Use udpateResponseDescriptor instead')
-const UdpateResponse$json = {
-  '1': 'UdpateResponse',
-  '2': [
-    {'1': 'task', '3': 1, '4': 1, '5': 11, '6': '.task.Task', '10': 'task'},
-  ],
-};
-
-/// Descriptor for `UdpateResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List udpateResponseDescriptor = $convert.base64Decode(
-    'Cg5VZHBhdGVSZXNwb25zZRIeCgR0YXNrGAEgASgLMgoudGFzay5UYXNrUgR0YXNr');
-
-@$core.Deprecated('Use deleteResponseDescriptor instead')
-const DeleteResponse$json = {
-  '1': 'DeleteResponse',
+@$core.Deprecated('Use helloReplyDescriptor instead')
+const HelloReply$json = {
+  '1': 'HelloReply',
   '2': [
     {'1': 'message', '3': 1, '4': 1, '5': 9, '10': 'message'},
   ],
 };
 
-/// Descriptor for `DeleteResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteResponseDescriptor = $convert.base64Decode(
-    'Cg5EZWxldGVSZXNwb25zZRIYCgdtZXNzYWdlGAEgASgJUgdtZXNzYWdl');
-
-const $core.Map<$core.String, $core.dynamic> TaskGrpcServiceBase$json = {
-  '1': 'TaskGrpcService',
-  '2': [
-    {'1': 'AddTask', '2': '.task.TaskRequest', '3': '.task.AddResponse'},
-    {'1': 'GetTask', '2': '.task.TaskRequest', '3': '.task.GetResponse'},
-    {'1': 'UpdateTask', '2': '.task.TaskRequest', '3': '.task.UdpateResponse'},
-    {'1': 'DeleteTask', '2': '.task.TaskRequest', '3': '.task.DeleteResponse'},
-  ],
-};
-
-@$core.Deprecated('Use taskGrpcServiceDescriptor instead')
-const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> TaskGrpcServiceBase$messageJson = {
-  '.task.TaskRequest': TaskRequest$json,
-  '.task.Task': Task$json,
-  '.google.protobuf.Timestamp': $0.Timestamp$json,
-  '.task.TaskUser': TaskUser$json,
-  '.task.User': User$json,
-  '.task.Permissions': Permissions$json,
-  '.task.Comment': Comment$json,
-  '.task.Project': Project$json,
-  '.task.AddResponse': AddResponse$json,
-  '.task.GetResponse': GetResponse$json,
-  '.task.UdpateResponse': UdpateResponse$json,
-  '.task.DeleteResponse': DeleteResponse$json,
-};
-
-/// Descriptor for `TaskGrpcService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
-final $typed_data.Uint8List taskGrpcServiceDescriptor = $convert.base64Decode(
-    'Cg9UYXNrR3JwY1NlcnZpY2USLwoHQWRkVGFzaxIRLnRhc2suVGFza1JlcXVlc3QaES50YXNrLk'
-    'FkZFJlc3BvbnNlEi8KB0dldFRhc2sSES50YXNrLlRhc2tSZXF1ZXN0GhEudGFzay5HZXRSZXNw'
-    'b25zZRI1CgpVcGRhdGVUYXNrEhEudGFzay5UYXNrUmVxdWVzdBoULnRhc2suVWRwYXRlUmVzcG'
-    '9uc2USNQoKRGVsZXRlVGFzaxIRLnRhc2suVGFza1JlcXVlc3QaFC50YXNrLkRlbGV0ZVJlc3Bv'
-    'bnNl');
+/// Descriptor for `HelloReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List helloReplyDescriptor = $convert.base64Decode(
+    'CgpIZWxsb1JlcGx5EhgKB21lc3NhZ2UYASABKAlSB21lc3NhZ2U=');
 
