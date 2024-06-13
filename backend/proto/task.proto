@@ -1,5 +1,5 @@
-syntex = "proto3"
-package = task
+syntax = "proto3";
+package  task;
 
 
 import "google/protobuf/timestamp.proto";
