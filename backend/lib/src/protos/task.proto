@@ -2,7 +2,9 @@ syntax = "proto3";
 package  task;
 
 
+
 import "google/protobuf/timestamp.proto";
+
 
 message Task {
 
@@ -110,13 +112,10 @@ message TaskList {
 
 /// Filter for the tasks.
 message TaskFilter {
-  string title = 1;
-  string description = 2;
-  bool done = 3;
-  Priority priority = 4;
-  Status status = 5;
-  int32 user_id = 6;
-  int32 project_id = 7;
+  optional string title = 1;
+  optional bool done = 3;
+  optional Priority priority = 4;
+  optional Status status = 5;
   int32 assigned_user_id = 8;
   int32 last_updated_user_id = 9;
   int32 comment_user_id = 10;
@@ -143,13 +142,11 @@ message CreateTaskRequest {
 /// Request to update a task.
 message UpdateTaskRequest {
   int32 id = 1;
-  string title = 2;
-  string description = 3;
-  bool done = 4;
-  Priority priority = 5;
-  Status status = 6;
-  int32 user_id = 7;
-  int32 project_id = 8;
+  optional string title = 2;
+  optional string description = 3;
+  optional bool done = 4;
+  optional Priority priority = 5;
+  optional Status status = 6;
   repeated int32 assigned_user_id = 9;
 }
 
@@ -162,4 +159,34 @@ message DeleteTaskRequest {
 message GetTaskRequest {
   int32 id = 1;
 }
+
+
+service TaskGrpcService{
+  rpc AddTask(TaskRequest) returns (AddResponse);
+  rpc GetTask(TaskRequest) returns (GetResponse);
+  rpc UpdateTask(TaskRequest) returns (UdpateResponse);
+  rpc DeleteTask(TaskRequest) returns (DeleteResponse);
+}
+
+message TaskRequest{
+  Task task = 1;
+}
+
+message AddResponse{
+  Task task = 1;
+}
+
+message GetResponse{
+  int32 id = 1;
+}
+
+message UdpateResponse{
+  Task task = 1;
+}
+
+message DeleteResponse{
+  string message = 1;
+}
+
+
 
