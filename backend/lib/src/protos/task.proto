@@ -12,22 +12,17 @@ message Task {
   string title = 2;
   string description = 3;
   bool done = 4;
-  //The priority of the task.
   Priority priority = 5;
   Status status = 6;
   google.protobuf.Timestamp create_at = 7;
   google.protobuf.Timestamp update_at = 8;
   google.protobuf.Timestamp last_update_at = 9;
-
   // The user who created the task.
-  TaskUser user = 10;
-
+  TaskUser creat_user = 10;
   /// list of assigned user to the task.
   repeated Task assigned_users = 11;
-
   /// last user who updated the task.
   User last_updated_user = 12;
-
   // list of comments on the task.
   repeated Comment comments = 13;
   Project project = 14;
@@ -43,7 +38,7 @@ enum Priority {
 
  /// The status of the task.   
  enum Status {
-  TODO = 0;
+  IDLE = 0;
   DOING = 1;
   DONE = 2;
 }
@@ -81,7 +76,7 @@ message TaskUser{
   string text = 2;
   google.protobuf.Timestamp create_at = 3;
   google.protobuf.Timestamp update_at = 4;
-  TaskUser user = 5;
+  User user = 5;
 }
 
 
@@ -92,7 +87,8 @@ message Project {
     string description = 3;
     google.protobuf.Timestamp create_at = 4;
     google.protobuf.Timestamp update_at = 5;
-    repeated TaskUser user = 6;
+    User create_user = 6;
+    repeated int32 tasks = 7;
 }
 
 
@@ -105,9 +101,14 @@ message Pagination {
 }
 
 /// List of tasks.
-message TaskList {
+message TaskListResponse {
   repeated Task tasks = 1;
   Pagination pagination = 2;
+}
+
+/// Get a task 
+message GetTaskResponse {
+  Task task = 1;
 }
 
 /// Filter for the tasks.
@@ -116,43 +117,61 @@ message TaskFilter {
   optional bool done = 3;
   optional Priority priority = 4;
   optional Status status = 5;
-  int32 assigned_user_id = 8;
-  int32 last_updated_user_id = 9;
-  int32 comment_user_id = 10;
-  string comment_text = 11;
-  google.protobuf.Timestamp create_at = 12;
-  google.protobuf.Timestamp update_at = 13;
-  google.protobuf.Timestamp last_update_at = 14;
-  google.protobuf.Timestamp comment_create_at = 15;
-  google.protobuf.Timestamp comment_update_at = 16;
+  optional int32 assigned_user_id = 8;
+  optional int32 last_updated_user_id = 9;
+  optional int32 comment_user_id = 10;
+  optional string comment_text = 11;
+  optional google.protobuf.Timestamp create_at = 12;
+  optional google.protobuf.Timestamp update_at = 13;
+  optional google.protobuf.Timestamp last_update_at = 14;
 }
 
 
 /// Request to create a task.
 message CreateTaskRequest {
   string title = 1;
-  string description = 2;
-  bool done = 3;
+  optional string description = 2;
+  int32 create_user_id = 3;
   Priority priority = 4;
-  int32 user_id = 6;
-  int32 project_id = 7;
-  repeated int32 assigned_user_id = 8;
+  int32 project_id = 5;
+  repeated int32 assigned_user_id = 6;
 }
 
 /// Request to update a task.
 message UpdateTaskRequest {
-  int32 id = 1;
-  optional string title = 2;
-  optional string description = 3;
-  optional bool done = 4;
-  optional Priority priority = 5;
-  optional Status status = 6;
-  repeated int32 assigned_user_id = 9;
+  optional string title = 1;
+  optional string description = 2;
+  optional bool done = 3;
+  optional Priority priority = 4;
+  optional Status status = 5;
+  repeated int32 updated_assigned_user_id = 6;
+  int32 last_updated_user_id = 7;
+  int32 id = 8;
+  optional int32 project_id = 9;
 }
+
+// Add a comment to a task.
+message AddOrUpdateCommentRequest {
+  int32 task_id = 1;
+  string text = 2;
+  int32 user_id = 3;
+  int32 project_id = 4;
+  bool is_update = 5;
+}
+
+/// add a user to a task.
+message AddOrRemoveUserToTaskRequest {
+  int32 task_id = 1;
+  int32 user_id = 2;
+  int32 project_id = 3;
+  bool is_remove = 4;
+}
+
 
 /// Request to delete a task.
 message DeleteTaskRequest {
-  int32 id = 1;
+  int32 task_id = 1;
+  int32 project_id = 2;
 }
 
 /// Request to get a task.
@@ -161,16 +180,55 @@ message GetTaskRequest {
 }
 
 
-
-
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
+message EmptyRequest {
 }
 
-// The response message containing the greetings
-message HelloReply {
-  string message = 1;
+message CreateProjectRequest{
+  int32 id = 1;
+  string name = 2;
+  optional string description = 3;
+}
+
+message UpdateProjectRequest{
+  int32 id = 1;
+  optional string name = 2;
+  optional string description = 3;
+}
+
+message DeleteProjectRequest{
+  int32 id =1;
+}
+message GetProjectRequest{
+  int32 id = 1;
+}
+message ProjectListResponse{
+  Project projects = 1;
+  Pagination pagination = 2;
+}
+
+
+/// ----- Project Service ------
+
+service ProjectService {
+  rpc CreateProject(CreateProjectRequest) returns (Project) {}
+  rpc UpdateProject(UpdateProjectRequest) returns (Project) {}
+  rpc DeleteProject(DeleteProjectRequest) returns (Project) {}
+  rpc GetProject(GetProjectRequest) returns (Project) {}
+  rpc GetProjects(EmptyRequest) returns (ProjectListResponse) {}
+}
+
+
+
+/// ----- Task Service ------
+
+service TaskService {
+  rpc CreateTask(CreateTaskRequest) returns (Task) {}
+  rpc UpdateTask(UpdateTaskRequest) returns (Task) {}
+  rpc DeleteTask(DeleteTaskRequest) returns (Task) {}
+  rpc GetTask(GetTaskRequest) returns (GetTaskResponse) {}
+  rpc GetTasks(EmptyRequest) returns (TaskListResponse) {}
+  rpc AddOrUpdateComment(AddOrUpdateCommentRequest) returns (Comment) {}
+  rpc AddOrRemoveUserToTask(AddOrRemoveUserToTaskRequest) returns (Task) {}
 }
 
 

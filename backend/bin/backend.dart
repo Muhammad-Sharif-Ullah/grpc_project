@@ -1,4 +1,6 @@
 import 'package:backend/src/services/greet_service.dart';
+import 'package:backend/src/services/project_services.dart';
+import 'package:backend/src/services/task_services.dart';
 import 'package:grpc/grpc.dart';
 
 // create server Interceptor
@@ -7,6 +9,8 @@ Future<void> main(List<String> args) async {
   final server = Server.create(
     services: [
       GreeterService(),
+      TaskServices(),
+      ProjectServices(),
     ],
     interceptors: [],
     errorHandler: (error, stackTrace) {

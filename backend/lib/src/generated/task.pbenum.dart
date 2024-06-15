@@ -33,12 +33,12 @@ class Priority extends $pb.ProtobufEnum {
 
 /// / The status of the task.
 class Status extends $pb.ProtobufEnum {
-  static const Status TODO = Status._(0, _omitEnumNames ? '' : 'TODO');
+  static const Status IDLE = Status._(0, _omitEnumNames ? '' : 'IDLE');
   static const Status DOING = Status._(1, _omitEnumNames ? '' : 'DOING');
   static const Status DONE = Status._(2, _omitEnumNames ? '' : 'DONE');
 
   static const $core.List<Status> values = <Status> [
-    TODO,
+    IDLE,
     DOING,
     DONE,
   ];
