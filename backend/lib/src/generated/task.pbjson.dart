@@ -390,7 +390,6 @@ final $typed_data.Uint8List emptyRequestDescriptor = $convert.base64Decode(
 const CreateProjectRequest$json = {
   '1': 'CreateProjectRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'description', '3': 3, '4': 1, '5': 9, '9': 0, '10': 'description', '17': true},
   ],
@@ -401,9 +400,8 @@ const CreateProjectRequest$json = {
 
 /// Descriptor for `CreateProjectRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createProjectRequestDescriptor = $convert.base64Decode(
-    'ChRDcmVhdGVQcm9qZWN0UmVxdWVzdBIOCgJpZBgBIAEoBVICaWQSEgoEbmFtZRgCIAEoCVIEbm'
-    'FtZRIlCgtkZXNjcmlwdGlvbhgDIAEoCUgAUgtkZXNjcmlwdGlvbogBAUIOCgxfZGVzY3JpcHRp'
-    'b24=');
+    'ChRDcmVhdGVQcm9qZWN0UmVxdWVzdBISCgRuYW1lGAIgASgJUgRuYW1lEiUKC2Rlc2NyaXB0aW'
+    '9uGAMgASgJSABSC2Rlc2NyaXB0aW9uiAEBQg4KDF9kZXNjcmlwdGlvbg==');
 
 @$core.Deprecated('Use updateProjectRequestDescriptor instead')
 const UpdateProjectRequest$json = {

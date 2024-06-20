@@ -1803,14 +1803,10 @@ class EmptyRequest extends $pb.GeneratedMessage {
 
 class CreateProjectRequest extends $pb.GeneratedMessage {
   factory CreateProjectRequest({
-    $core.int? id,
     $core.String? name,
     $core.String? description,
   }) {
     final $result = create();
-    if (id != null) {
-      $result.id = id;
-    }
     if (name != null) {
       $result.name = name;
     }
@@ -1824,7 +1820,6 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   factory CreateProjectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateProjectRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'description')
     ..hasRequiredFields = false
@@ -1851,30 +1846,21 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   static CreateProjectRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateProjectRequest>(create);
   static CreateProjectRequest? _defaultInstance;
 
-  @$pb.TagNumber(1)
-  $core.int get id => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set id($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearId() => clearField(1);
-
   @$pb.TagNumber(2)
-  $core.String get name => $_getSZ(1);
+  $core.String get name => $_getSZ(0);
   @$pb.TagNumber(2)
-  set name($core.String v) { $_setString(1, v); }
+  set name($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(2)
-  $core.bool hasName() => $_has(1);
+  $core.bool hasName() => $_has(0);
   @$pb.TagNumber(2)
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get description => $_getSZ(2);
+  $core.String get description => $_getSZ(1);
   @$pb.TagNumber(3)
-  set description($core.String v) { $_setString(2, v); }
+  set description($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDescription() => $_has(2);
+  $core.bool hasDescription() => $_has(1);
   @$pb.TagNumber(3)
   void clearDescription() => clearField(3);
 }
