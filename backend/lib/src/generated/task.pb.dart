@@ -652,6 +652,9 @@ class Project extends $pb.GeneratedMessage {
     $2.Timestamp? updateAt,
     User? createUser,
     $core.Iterable<$core.int>? tasks,
+    Status? status,
+    Priority? priority,
+    $core.Iterable<TaskUser>? users,
   }) {
     final $result = create();
     if (id != null) {
@@ -675,6 +678,15 @@ class Project extends $pb.GeneratedMessage {
     if (tasks != null) {
       $result.tasks.addAll(tasks);
     }
+    if (status != null) {
+      $result.status = status;
+    }
+    if (priority != null) {
+      $result.priority = priority;
+    }
+    if (users != null) {
+      $result.users.addAll(users);
+    }
     return $result;
   }
   Project._() : super();
@@ -689,6 +701,9 @@ class Project extends $pb.GeneratedMessage {
     ..aOM<$2.Timestamp>(5, _omitFieldNames ? '' : 'updateAt', subBuilder: $2.Timestamp.create)
     ..aOM<User>(6, _omitFieldNames ? '' : 'createUser', subBuilder: User.create)
     ..p<$core.int>(7, _omitFieldNames ? '' : 'tasks', $pb.PbFieldType.K3)
+    ..e<Status>(8, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: Status.IDLE, valueOf: Status.valueOf, enumValues: Status.values)
+    ..e<Priority>(9, _omitFieldNames ? '' : 'priority', $pb.PbFieldType.OE, defaultOrMaker: Priority.LOW, valueOf: Priority.valueOf, enumValues: Priority.values)
+    ..pc<TaskUser>(10, _omitFieldNames ? '' : 'users', $pb.PbFieldType.PM, subBuilder: TaskUser.create)
     ..hasRequiredFields = false
   ;
 
@@ -775,6 +790,27 @@ class Project extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.List<$core.int> get tasks => $_getList(6);
+
+  @$pb.TagNumber(8)
+  Status get status => $_getN(7);
+  @$pb.TagNumber(8)
+  set status(Status v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasStatus() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearStatus() => clearField(8);
+
+  @$pb.TagNumber(9)
+  Priority get priority => $_getN(8);
+  @$pb.TagNumber(9)
+  set priority(Priority v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasPriority() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearPriority() => clearField(9);
+
+  @$pb.TagNumber(10)
+  $core.List<TaskUser> get users => $_getList(9);
 }
 
 /// / Pagination for the tasks.
@@ -1805,6 +1841,9 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   factory CreateProjectRequest({
     $core.String? name,
     $core.String? description,
+    Status? status,
+    Priority? priority,
+    $core.int? createUserId,
   }) {
     final $result = create();
     if (name != null) {
@@ -1813,6 +1852,15 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
     if (description != null) {
       $result.description = description;
     }
+    if (status != null) {
+      $result.status = status;
+    }
+    if (priority != null) {
+      $result.priority = priority;
+    }
+    if (createUserId != null) {
+      $result.createUserId = createUserId;
+    }
     return $result;
   }
   CreateProjectRequest._() : super();
@@ -1820,8 +1868,11 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   factory CreateProjectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateProjectRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
-    ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOS(3, _omitFieldNames ? '' : 'description')
+    ..aOS(1, _omitFieldNames ? '' : 'name')
+    ..aOS(2, _omitFieldNames ? '' : 'description')
+    ..e<Status>(3, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: Status.IDLE, valueOf: Status.valueOf, enumValues: Status.values)
+    ..e<Priority>(4, _omitFieldNames ? '' : 'priority', $pb.PbFieldType.OE, defaultOrMaker: Priority.LOW, valueOf: Priority.valueOf, enumValues: Priority.values)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'createUserId', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1846,23 +1897,50 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   static CreateProjectRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateProjectRequest>(create);
   static CreateProjectRequest? _defaultInstance;
 
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(1)
   $core.String get name => $_getSZ(0);
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(1)
   set name($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(2)
+  @$pb.TagNumber(1)
   $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearName() => clearField(1);
+
   @$pb.TagNumber(2)
-  void clearName() => clearField(2);
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set description($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDescription() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get description => $_getSZ(1);
+  Status get status => $_getN(2);
   @$pb.TagNumber(3)
-  set description($core.String v) { $_setString(1, v); }
+  set status(Status v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDescription() => $_has(1);
+  $core.bool hasStatus() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDescription() => clearField(3);
+  void clearStatus() => clearField(3);
+
+  @$pb.TagNumber(4)
+  Priority get priority => $_getN(3);
+  @$pb.TagNumber(4)
+  set priority(Priority v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasPriority() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearPriority() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.int get createUserId => $_getIZ(4);
+  @$pb.TagNumber(5)
+  set createUserId($core.int v) { $_setSignedInt32(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasCreateUserId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCreateUserId() => clearField(5);
 }
 
 class UpdateProjectRequest extends $pb.GeneratedMessage {

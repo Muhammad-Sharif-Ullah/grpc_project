@@ -89,6 +89,9 @@ message Project {
     google.protobuf.Timestamp update_at = 5;
     User create_user = 6;
     repeated int32 tasks = 7;
+    Status status = 8;
+    Priority priority = 9;
+    repeated TaskUser users = 10;
 }
 
 
@@ -184,8 +187,11 @@ message EmptyRequest {
 }
 
 message CreateProjectRequest{
-  string name = 2;
-  optional string description = 3;
+  string name = 1;
+  string description = 2;
+  optional Status status = 3;
+  optional Priority priority = 4;
+  optional int32 create_user_id = 5;
 }
 
 message UpdateProjectRequest{
