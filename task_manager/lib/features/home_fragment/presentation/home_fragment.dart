@@ -153,7 +153,9 @@ class HomeAppBar extends StatelessWidget {
     return SliverAppBar(
       surfaceTintColor: Colors.transparent,
       titleSpacing: 30,
-      leading: const Icon(CupertinoIcons.waveform_path),
+      leading: const Icon(
+        CupertinoIcons.waveform,
+      ),
       leadingWidth: 80,
       actions: [
         IconButton(

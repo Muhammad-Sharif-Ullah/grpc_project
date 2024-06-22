@@ -49,17 +49,16 @@ message User {
   int32 id = 1;
   string name = 2;
   string email = 3;
-  string password = 4;
   string avatar = 5;
 }
 
 /// Permissions for the task.
-message Permissions {
-  bool can_edit = 1;
-  bool can_delete = 2;
-  bool can_assign = 3;
-  bool can_change_status = 4;
-  bool can_change_priority = 5;
+enum Permissions {
+   can_edit = 0;
+   can_delete = 1;
+   can_assign = 2;
+   can_change_status = 3;
+   can_change_priority = 4;
 }
 
 
@@ -87,7 +86,7 @@ message Project {
     string description = 3;
     google.protobuf.Timestamp create_at = 4;
     google.protobuf.Timestamp update_at = 5;
-    User create_user = 6;
+    TaskUser create_user = 6;
     repeated int32 tasks = 7;
     Status status = 8;
     Priority priority = 9;
@@ -189,8 +188,8 @@ message EmptyRequest {
 message CreateProjectRequest{
   string name = 1;
   string description = 2;
-  optional Status status = 3;
-  optional Priority priority = 4;
+  // optional Status status = 3;
+  // optional Priority priority = 4;
   optional int32 create_user_id = 5;
 }
 

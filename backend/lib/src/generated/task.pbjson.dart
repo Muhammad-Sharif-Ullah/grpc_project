@@ -41,6 +41,23 @@ const Status$json = {
 final $typed_data.Uint8List statusDescriptor = $convert.base64Decode(
     'CgZTdGF0dXMSCAoESURMRRAAEgkKBURPSU5HEAESCAoERE9ORRAC');
 
+@$core.Deprecated('Use permissionsDescriptor instead')
+const Permissions$json = {
+  '1': 'Permissions',
+  '2': [
+    {'1': 'can_edit', '2': 0},
+    {'1': 'can_delete', '2': 1},
+    {'1': 'can_assign', '2': 2},
+    {'1': 'can_change_status', '2': 3},
+    {'1': 'can_change_priority', '2': 4},
+  ],
+};
+
+/// Descriptor for `Permissions`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List permissionsDescriptor = $convert.base64Decode(
+    'CgtQZXJtaXNzaW9ucxIMCghjYW5fZWRpdBAAEg4KCmNhbl9kZWxldGUQARIOCgpjYW5fYXNzaW'
+    'duEAISFQoRY2FuX2NoYW5nZV9zdGF0dXMQAxIXChNjYW5fY2hhbmdlX3ByaW9yaXR5EAQ=');
+
 @$core.Deprecated('Use taskDescriptor instead')
 const Task$json = {
   '1': 'Task',
@@ -83,7 +100,6 @@ const User$json = {
     {'1': 'id', '3': 1, '4': 1, '5': 5, '10': 'id'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'email', '3': 3, '4': 1, '5': 9, '10': 'email'},
-    {'1': 'password', '3': 4, '4': 1, '5': 9, '10': 'password'},
     {'1': 'avatar', '3': 5, '4': 1, '5': 9, '10': 'avatar'},
   ],
 };
@@ -91,41 +107,21 @@ const User$json = {
 /// Descriptor for `User`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
     'CgRVc2VyEg4KAmlkGAEgASgFUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEhQKBWVtYWlsGAMgAS'
-    'gJUgVlbWFpbBIaCghwYXNzd29yZBgEIAEoCVIIcGFzc3dvcmQSFgoGYXZhdGFyGAUgASgJUgZh'
-    'dmF0YXI=');
-
-@$core.Deprecated('Use permissionsDescriptor instead')
-const Permissions$json = {
-  '1': 'Permissions',
-  '2': [
-    {'1': 'can_edit', '3': 1, '4': 1, '5': 8, '10': 'canEdit'},
-    {'1': 'can_delete', '3': 2, '4': 1, '5': 8, '10': 'canDelete'},
-    {'1': 'can_assign', '3': 3, '4': 1, '5': 8, '10': 'canAssign'},
-    {'1': 'can_change_status', '3': 4, '4': 1, '5': 8, '10': 'canChangeStatus'},
-    {'1': 'can_change_priority', '3': 5, '4': 1, '5': 8, '10': 'canChangePriority'},
-  ],
-};
-
-/// Descriptor for `Permissions`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List permissionsDescriptor = $convert.base64Decode(
-    'CgtQZXJtaXNzaW9ucxIZCghjYW5fZWRpdBgBIAEoCFIHY2FuRWRpdBIdCgpjYW5fZGVsZXRlGA'
-    'IgASgIUgljYW5EZWxldGUSHQoKY2FuX2Fzc2lnbhgDIAEoCFIJY2FuQXNzaWduEioKEWNhbl9j'
-    'aGFuZ2Vfc3RhdHVzGAQgASgIUg9jYW5DaGFuZ2VTdGF0dXMSLgoTY2FuX2NoYW5nZV9wcmlvcm'
-    'l0eRgFIAEoCFIRY2FuQ2hhbmdlUHJpb3JpdHk=');
+    'gJUgVlbWFpbBIWCgZhdmF0YXIYBSABKAlSBmF2YXRhcg==');
 
 @$core.Deprecated('Use taskUserDescriptor instead')
 const TaskUser$json = {
   '1': 'TaskUser',
   '2': [
     {'1': 'user', '3': 1, '4': 1, '5': 11, '6': '.task.User', '10': 'user'},
-    {'1': 'permissions', '3': 2, '4': 3, '5': 11, '6': '.task.Permissions', '10': 'permissions'},
+    {'1': 'permissions', '3': 2, '4': 3, '5': 14, '6': '.task.Permissions', '10': 'permissions'},
   ],
 };
 
 /// Descriptor for `TaskUser`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List taskUserDescriptor = $convert.base64Decode(
     'CghUYXNrVXNlchIeCgR1c2VyGAEgASgLMgoudGFzay5Vc2VyUgR1c2VyEjMKC3Blcm1pc3Npb2'
-    '5zGAIgAygLMhEudGFzay5QZXJtaXNzaW9uc1ILcGVybWlzc2lvbnM=');
+    '5zGAIgAygOMhEudGFzay5QZXJtaXNzaW9uc1ILcGVybWlzc2lvbnM=');
 
 @$core.Deprecated('Use commentDescriptor instead')
 const Comment$json = {
@@ -155,7 +151,7 @@ const Project$json = {
     {'1': 'description', '3': 3, '4': 1, '5': 9, '10': 'description'},
     {'1': 'create_at', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createAt'},
     {'1': 'update_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updateAt'},
-    {'1': 'create_user', '3': 6, '4': 1, '5': 11, '6': '.task.User', '10': 'createUser'},
+    {'1': 'create_user', '3': 6, '4': 1, '5': 11, '6': '.task.TaskUser', '10': 'createUser'},
     {'1': 'tasks', '3': 7, '4': 3, '5': 5, '10': 'tasks'},
     {'1': 'status', '3': 8, '4': 1, '5': 14, '6': '.task.Status', '10': 'status'},
     {'1': 'priority', '3': 9, '4': 1, '5': 14, '6': '.task.Priority', '10': 'priority'},
@@ -168,10 +164,10 @@ final $typed_data.Uint8List projectDescriptor = $convert.base64Decode(
     'CgdQcm9qZWN0Eg4KAmlkGAEgASgFUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEiAKC2Rlc2NyaX'
     'B0aW9uGAMgASgJUgtkZXNjcmlwdGlvbhI3CgljcmVhdGVfYXQYBCABKAsyGi5nb29nbGUucHJv'
     'dG9idWYuVGltZXN0YW1wUghjcmVhdGVBdBI3Cgl1cGRhdGVfYXQYBSABKAsyGi5nb29nbGUucH'
-    'JvdG9idWYuVGltZXN0YW1wUgh1cGRhdGVBdBIrCgtjcmVhdGVfdXNlchgGIAEoCzIKLnRhc2su'
-    'VXNlclIKY3JlYXRlVXNlchIUCgV0YXNrcxgHIAMoBVIFdGFza3MSJAoGc3RhdHVzGAggASgOMg'
-    'wudGFzay5TdGF0dXNSBnN0YXR1cxIqCghwcmlvcml0eRgJIAEoDjIOLnRhc2suUHJpb3JpdHlS'
-    'CHByaW9yaXR5EiQKBXVzZXJzGAogAygLMg4udGFzay5UYXNrVXNlclIFdXNlcnM=');
+    'JvdG9idWYuVGltZXN0YW1wUgh1cGRhdGVBdBIvCgtjcmVhdGVfdXNlchgGIAEoCzIOLnRhc2su'
+    'VGFza1VzZXJSCmNyZWF0ZVVzZXISFAoFdGFza3MYByADKAVSBXRhc2tzEiQKBnN0YXR1cxgIIA'
+    'EoDjIMLnRhc2suU3RhdHVzUgZzdGF0dXMSKgoIcHJpb3JpdHkYCSABKA4yDi50YXNrLlByaW9y'
+    'aXR5Ughwcmlvcml0eRIkCgV1c2VycxgKIAMoCzIOLnRhc2suVGFza1VzZXJSBXVzZXJz');
 
 @$core.Deprecated('Use paginationDescriptor instead')
 const Pagination$json = {
@@ -396,26 +392,19 @@ const CreateProjectRequest$json = {
   '1': 'CreateProjectRequest',
   '2': [
     {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'description', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'description', '17': true},
-    {'1': 'status', '3': 3, '4': 1, '5': 14, '6': '.task.Status', '9': 1, '10': 'status', '17': true},
-    {'1': 'priority', '3': 4, '4': 1, '5': 14, '6': '.task.Priority', '9': 2, '10': 'priority', '17': true},
-    {'1': 'create_user_id', '3': 5, '4': 1, '5': 5, '9': 3, '10': 'createUserId', '17': true},
+    {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
+    {'1': 'create_user_id', '3': 5, '4': 1, '5': 5, '9': 0, '10': 'createUserId', '17': true},
   ],
   '8': [
-    {'1': '_description'},
-    {'1': '_status'},
-    {'1': '_priority'},
     {'1': '_create_user_id'},
   ],
 };
 
 /// Descriptor for `CreateProjectRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createProjectRequestDescriptor = $convert.base64Decode(
-    'ChRDcmVhdGVQcm9qZWN0UmVxdWVzdBISCgRuYW1lGAEgASgJUgRuYW1lEiUKC2Rlc2NyaXB0aW'
-    '9uGAIgASgJSABSC2Rlc2NyaXB0aW9uiAEBEikKBnN0YXR1cxgDIAEoDjIMLnRhc2suU3RhdHVz'
-    'SAFSBnN0YXR1c4gBARIvCghwcmlvcml0eRgEIAEoDjIOLnRhc2suUHJpb3JpdHlIAlIIcHJpb3'
-    'JpdHmIAQESKQoOY3JlYXRlX3VzZXJfaWQYBSABKAVIA1IMY3JlYXRlVXNlcklkiAEBQg4KDF9k'
-    'ZXNjcmlwdGlvbkIJCgdfc3RhdHVzQgsKCV9wcmlvcml0eUIRCg9fY3JlYXRlX3VzZXJfaWQ=');
+    'ChRDcmVhdGVQcm9qZWN0UmVxdWVzdBISCgRuYW1lGAEgASgJUgRuYW1lEiAKC2Rlc2NyaXB0aW'
+    '9uGAIgASgJUgtkZXNjcmlwdGlvbhIpCg5jcmVhdGVfdXNlcl9pZBgFIAEoBUgAUgxjcmVhdGVV'
+    'c2VySWSIAQFCEQoPX2NyZWF0ZV91c2VyX2lk');
 
 @$core.Deprecated('Use updateProjectRequestDescriptor instead')
 const UpdateProjectRequest$json = {

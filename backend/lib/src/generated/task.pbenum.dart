@@ -49,5 +49,27 @@ class Status extends $pb.ProtobufEnum {
   const Status._($core.int v, $core.String n) : super(v, n);
 }
 
+/// / Permissions for the task.
+class Permissions extends $pb.ProtobufEnum {
+  static const Permissions can_edit = Permissions._(0, _omitEnumNames ? '' : 'can_edit');
+  static const Permissions can_delete = Permissions._(1, _omitEnumNames ? '' : 'can_delete');
+  static const Permissions can_assign = Permissions._(2, _omitEnumNames ? '' : 'can_assign');
+  static const Permissions can_change_status = Permissions._(3, _omitEnumNames ? '' : 'can_change_status');
+  static const Permissions can_change_priority = Permissions._(4, _omitEnumNames ? '' : 'can_change_priority');
+
+  static const $core.List<Permissions> values = <Permissions> [
+    can_edit,
+    can_delete,
+    can_assign,
+    can_change_status,
+    can_change_priority,
+  ];
+
+  static final $core.Map<$core.int, Permissions> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static Permissions? valueOf($core.int value) => _byValue[value];
+
+  const Permissions._($core.int v, $core.String n) : super(v, n);
+}
+
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

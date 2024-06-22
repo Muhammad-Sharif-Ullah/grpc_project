@@ -260,7 +260,6 @@ class User extends $pb.GeneratedMessage {
     $core.int? id,
     $core.String? name,
     $core.String? email,
-    $core.String? password,
     $core.String? avatar,
   }) {
     final $result = create();
@@ -272,9 +271,6 @@ class User extends $pb.GeneratedMessage {
     }
     if (email != null) {
       $result.email = email;
-    }
-    if (password != null) {
-      $result.password = password;
     }
     if (avatar != null) {
       $result.avatar = avatar;
@@ -289,7 +285,6 @@ class User extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'email')
-    ..aOS(4, _omitFieldNames ? '' : 'password')
     ..aOS(5, _omitFieldNames ? '' : 'avatar')
     ..hasRequiredFields = false
   ;
@@ -342,130 +337,14 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearEmail() => clearField(3);
 
-  @$pb.TagNumber(4)
-  $core.String get password => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set password($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasPassword() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearPassword() => clearField(4);
-
   @$pb.TagNumber(5)
-  $core.String get avatar => $_getSZ(4);
+  $core.String get avatar => $_getSZ(3);
   @$pb.TagNumber(5)
-  set avatar($core.String v) { $_setString(4, v); }
+  set avatar($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(5)
-  $core.bool hasAvatar() => $_has(4);
+  $core.bool hasAvatar() => $_has(3);
   @$pb.TagNumber(5)
   void clearAvatar() => clearField(5);
-}
-
-/// / Permissions for the task.
-class Permissions extends $pb.GeneratedMessage {
-  factory Permissions({
-    $core.bool? canEdit,
-    $core.bool? canDelete,
-    $core.bool? canAssign,
-    $core.bool? canChangeStatus,
-    $core.bool? canChangePriority,
-  }) {
-    final $result = create();
-    if (canEdit != null) {
-      $result.canEdit = canEdit;
-    }
-    if (canDelete != null) {
-      $result.canDelete = canDelete;
-    }
-    if (canAssign != null) {
-      $result.canAssign = canAssign;
-    }
-    if (canChangeStatus != null) {
-      $result.canChangeStatus = canChangeStatus;
-    }
-    if (canChangePriority != null) {
-      $result.canChangePriority = canChangePriority;
-    }
-    return $result;
-  }
-  Permissions._() : super();
-  factory Permissions.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Permissions.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Permissions', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
-    ..aOB(1, _omitFieldNames ? '' : 'canEdit')
-    ..aOB(2, _omitFieldNames ? '' : 'canDelete')
-    ..aOB(3, _omitFieldNames ? '' : 'canAssign')
-    ..aOB(4, _omitFieldNames ? '' : 'canChangeStatus')
-    ..aOB(5, _omitFieldNames ? '' : 'canChangePriority')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  Permissions clone() => Permissions()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  Permissions copyWith(void Function(Permissions) updates) => super.copyWith((message) => updates(message as Permissions)) as Permissions;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static Permissions create() => Permissions._();
-  Permissions createEmptyInstance() => create();
-  static $pb.PbList<Permissions> createRepeated() => $pb.PbList<Permissions>();
-  @$core.pragma('dart2js:noInline')
-  static Permissions getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Permissions>(create);
-  static Permissions? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.bool get canEdit => $_getBF(0);
-  @$pb.TagNumber(1)
-  set canEdit($core.bool v) { $_setBool(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasCanEdit() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearCanEdit() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.bool get canDelete => $_getBF(1);
-  @$pb.TagNumber(2)
-  set canDelete($core.bool v) { $_setBool(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasCanDelete() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearCanDelete() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.bool get canAssign => $_getBF(2);
-  @$pb.TagNumber(3)
-  set canAssign($core.bool v) { $_setBool(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasCanAssign() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearCanAssign() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.bool get canChangeStatus => $_getBF(3);
-  @$pb.TagNumber(4)
-  set canChangeStatus($core.bool v) { $_setBool(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasCanChangeStatus() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearCanChangeStatus() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.bool get canChangePriority => $_getBF(4);
-  @$pb.TagNumber(5)
-  set canChangePriority($core.bool v) { $_setBool(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasCanChangePriority() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearCanChangePriority() => clearField(5);
 }
 
 /// /TaskUser is a user with permissions.
@@ -489,7 +368,7 @@ class TaskUser extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TaskUser', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
     ..aOM<User>(1, _omitFieldNames ? '' : 'user', subBuilder: User.create)
-    ..pc<Permissions>(2, _omitFieldNames ? '' : 'permissions', $pb.PbFieldType.PM, subBuilder: Permissions.create)
+    ..pc<Permissions>(2, _omitFieldNames ? '' : 'permissions', $pb.PbFieldType.KE, valueOf: Permissions.valueOf, enumValues: Permissions.values, defaultEnumValue: Permissions.can_edit)
     ..hasRequiredFields = false
   ;
 
@@ -650,7 +529,7 @@ class Project extends $pb.GeneratedMessage {
     $core.String? description,
     $2.Timestamp? createAt,
     $2.Timestamp? updateAt,
-    User? createUser,
+    TaskUser? createUser,
     $core.Iterable<$core.int>? tasks,
     Status? status,
     Priority? priority,
@@ -699,7 +578,7 @@ class Project extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'description')
     ..aOM<$2.Timestamp>(4, _omitFieldNames ? '' : 'createAt', subBuilder: $2.Timestamp.create)
     ..aOM<$2.Timestamp>(5, _omitFieldNames ? '' : 'updateAt', subBuilder: $2.Timestamp.create)
-    ..aOM<User>(6, _omitFieldNames ? '' : 'createUser', subBuilder: User.create)
+    ..aOM<TaskUser>(6, _omitFieldNames ? '' : 'createUser', subBuilder: TaskUser.create)
     ..p<$core.int>(7, _omitFieldNames ? '' : 'tasks', $pb.PbFieldType.K3)
     ..e<Status>(8, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: Status.IDLE, valueOf: Status.valueOf, enumValues: Status.values)
     ..e<Priority>(9, _omitFieldNames ? '' : 'priority', $pb.PbFieldType.OE, defaultOrMaker: Priority.LOW, valueOf: Priority.valueOf, enumValues: Priority.values)
@@ -778,15 +657,15 @@ class Project extends $pb.GeneratedMessage {
   $2.Timestamp ensureUpdateAt() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  User get createUser => $_getN(5);
+  TaskUser get createUser => $_getN(5);
   @$pb.TagNumber(6)
-  set createUser(User v) { setField(6, v); }
+  set createUser(TaskUser v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasCreateUser() => $_has(5);
   @$pb.TagNumber(6)
   void clearCreateUser() => clearField(6);
   @$pb.TagNumber(6)
-  User ensureCreateUser() => $_ensure(5);
+  TaskUser ensureCreateUser() => $_ensure(5);
 
   @$pb.TagNumber(7)
   $core.List<$core.int> get tasks => $_getList(6);
@@ -1841,8 +1720,6 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   factory CreateProjectRequest({
     $core.String? name,
     $core.String? description,
-    Status? status,
-    Priority? priority,
     $core.int? createUserId,
   }) {
     final $result = create();
@@ -1851,12 +1728,6 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
     }
     if (description != null) {
       $result.description = description;
-    }
-    if (status != null) {
-      $result.status = status;
-    }
-    if (priority != null) {
-      $result.priority = priority;
     }
     if (createUserId != null) {
       $result.createUserId = createUserId;
@@ -1870,8 +1741,6 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateProjectRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'task'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'name')
     ..aOS(2, _omitFieldNames ? '' : 'description')
-    ..e<Status>(3, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: Status.IDLE, valueOf: Status.valueOf, enumValues: Status.values)
-    ..e<Priority>(4, _omitFieldNames ? '' : 'priority', $pb.PbFieldType.OE, defaultOrMaker: Priority.LOW, valueOf: Priority.valueOf, enumValues: Priority.values)
     ..a<$core.int>(5, _omitFieldNames ? '' : 'createUserId', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -1915,30 +1784,14 @@ class CreateProjectRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearDescription() => clearField(2);
 
-  @$pb.TagNumber(3)
-  Status get status => $_getN(2);
-  @$pb.TagNumber(3)
-  set status(Status v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasStatus() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearStatus() => clearField(3);
-
-  @$pb.TagNumber(4)
-  Priority get priority => $_getN(3);
-  @$pb.TagNumber(4)
-  set priority(Priority v) { setField(4, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasPriority() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearPriority() => clearField(4);
-
+  /// optional Status status = 3;
+  /// optional Priority priority = 4;
   @$pb.TagNumber(5)
-  $core.int get createUserId => $_getIZ(4);
+  $core.int get createUserId => $_getIZ(2);
   @$pb.TagNumber(5)
-  set createUserId($core.int v) { $_setSignedInt32(4, v); }
+  set createUserId($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(5)
-  $core.bool hasCreateUserId() => $_has(4);
+  $core.bool hasCreateUserId() => $_has(2);
   @$pb.TagNumber(5)
   void clearCreateUserId() => clearField(5);
 }

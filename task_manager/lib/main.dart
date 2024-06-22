@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:task_manager/features/home_fragment/presentation/home_fragment.dart';
 import 'package:task_manager/features/project_details/presentation/pages/create_new_project_screen.dart';
+import 'package:task_manager/features/splash/presentation/pages/splash_screen.dart';
 import 'package:task_manager/features/task_details/presentation/pages/create_new_task_screen.dart';
 
 void main() {
@@ -64,7 +65,10 @@ class MyApp extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
         ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const LoginScreen()
+      // home: const RegistrationScreen(),
+      home: const SplashScreen(),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
