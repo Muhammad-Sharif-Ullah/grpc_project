@@ -3,9 +3,11 @@
 ## Overview
 
 ### gRPC
+
 gRPC (gRPC Remote Procedure Call) is a high-performance, open-source framework developed by Google for building scalable and efficient APIs. It uses HTTP/2 for transport, Protocol Buffers (protobuf) as the interface description language, and provides features such as authentication, load balancing, and more.
 
 ### Protocol Buffers
+
 Protocol Buffers (protobuf) is a language-neutral, platform-neutral, extensible mechanism for serializing structured data. It allows defining data structures in `.proto` files and generates code in various languages for data serialization and deserialization.
 
 ## Protocol Buffers Syntax (proto3)
@@ -13,6 +15,7 @@ Protocol Buffers (protobuf) is a language-neutral, platform-neutral, extensible 
 ### Basic Syntax
 
 1. **Define a .proto file**
+
    ```proto
    syntax = "proto3";
 
@@ -39,7 +42,6 @@ Protocol Buffers (protobuf) is a language-neutral, platform-neutral, extensible 
      ExampleMessage example = 1;
    }
 
-   
 2. **Data Types**
 
     - double, float
@@ -48,18 +50,19 @@ Protocol Buffers (protobuf) is a language-neutral, platform-neutral, extensible 
     - string
     - bytes
 
-
 3. **Field Rules**
 
- - Optional: Fields are optional by default in proto3.
- - Repeated: Represents a list of values.
+- Optional: Fields are optional by default in proto3.
+- Repeated: Represents a list of values.
 
     ```proto
     repeated string tags = 4;
     ```
 
 4. **Reserved Keywords**
-  - Reserved field numbers and names to prevent future conflicts.
+
+- Reserved field numbers and names to prevent future conflicts.
+
     ```proto
       message Sample {
         reserved 4, 5, 6;
@@ -68,40 +71,49 @@ Protocol Buffers (protobuf) is a language-neutral, platform-neutral, extensible 
     ```
 
 ## Types of gRPC Calls
+
 - ***Unary RPC***
 
   - A single request is sent from the client to the server and a single response is returned.
+
     ```proto
     rpc GetExample (ExampleRequest) returns (ExampleResponse);
     ```
+
 - **Server Streaming RPC**
   - The client sends a single request to the server and receives a stream of responses.
+
     ```proto
     rpc GetExampleStream (ExampleRequest) returns (stream ExampleResponse);
     ```
+
 - ***Client Streaming RPC**
 
   - The client sends a stream of requests to the server and receives a single response.
+
     ```proto
     rpc SendExampleStream (stream ExampleRequest) returns (ExampleResponse);
     ```
+
 - ***Bidirectional Streaming RPC***
 
   - Both client and server send a stream of messages to each other.
+
     ```proto
     rpc ExampleChat (stream ExampleRequest) returns (stream ExampleResponse);
     ```
 
 ### gRPC on the Web and Proxies
+
 For enabling gRPC in web applications, using a proxy like Envoy is recommended. Here is a basic setup:
 
 1. ***Envoy Installation***
 
-  - Follow the installation instructions from the Envoy documentation.
+- Follow the installation instructions from the Envoy documentation.
 
 2. ***Proxy Configuration***
 
-  - Save the following configuration in a file named envoy.yaml and run Envoy with this configuration.
+- Save the following configuration in a file named envoy.yaml and run Envoy with this configuration.
 
     ```yaml
     static_resources:
@@ -146,32 +158,37 @@ For enabling gRPC in web applications, using a proxy like Envoy is recommended. 
     ```
 
 3. ***Running Envoy***
+
     ```sh
     envoy -c envoy.yaml
     ```
-    - This will proxy HTTP/1.1 gRPC-Web requests to your gRPC server.
-    
+
+    This will proxy HTTP/1.1 gRPC-Web requests to your gRPC server.
+
 ### gRPC Basics
+
 #### **gRPC Service Definition**
+
 - Define the service in .proto file
 
-```proto
-service ExampleService {
-  rpc GetExample (ExampleRequest) returns (ExampleResponse);
-}
-```
+  ```proto
+  service ExampleService {
+    rpc GetExample (ExampleRequest) returns (ExampleResponse);
+  }
+  ```
 
 - Generate gRPC code
-  - Use the protoc compiler to generate gRPC code from the .proto file.
+- Use the protoc compiler to generate gRPC code from the .proto file.
+
     ```bash
     protoc --dart_out=grpc:lib/src/generated -Iprotos protos/example.proto
     ```
 
-
-
 ### Dart + gRPC Example
+
 1. **Setup**
-  - Add dependencies to pubspec.yaml
+
+- Add dependencies to pubspec.yaml
 
     ```yaml
     dependencies:
@@ -179,12 +196,14 @@ service ExampleService {
     protobuf: ^2.0.0
     ```
 
-  - Generate Dart code from .proto file
+- Generate Dart code from .proto file
 
     ```sh
     protoc --dart_out=grpc:lib/src/generated -Iprotos protos/example.proto
     ```
+
 2. **Server Implementation**
+
     ```dart
     import 'dart:async';
     import 'package:grpc/grpc.dart';
@@ -211,6 +230,7 @@ service ExampleService {
     ```
 
 2. **Client Implementation**
+
     ```dart
     import 'package:grpc/grpc.dart';
     import 'package:your_project/src/generated/example.pbgrpc.dart';
@@ -234,9 +254,6 @@ service ExampleService {
     }
 
     ```
-
-
-
 
 ## References
 
@@ -285,14 +302,91 @@ gRPC provides built-in support for load balancing, which can be configured in th
 
 gRPC uses status codes to indicate the outcome of an RPC call. These status codes are part of the `grpc` library in Dart and can be handled using try-catch blocks in your client or server code.
 
-```dart
-try {
-  final response = await stub.getExample(request);
-  print('Example: ${response.example.name}');
-} catch (e) {
-  if (e is GrpcError) {
-    print('gRPC Error: ${e.message} (Code: ${e.code})');
-  } else {
-    print('Unexpected Error: $e');
+    ```dart
+    try {
+      final response = await stub.getExample(request);
+      print('Example: ${response.example.name}');
+    } catch (e) {
+      if (e is GrpcError) {
+        print('gRPC Error: ${e.message} (Code: ${e.code})');
+      } else {
+        print('Unexpected Error: $e');
+      }
+    }
+    ```
+
+### Interceptors
+
+gRPC interceptors allow you to intercept and manipulate RPC calls at the client or server side. This can be used for logging, authentication, error handling, and more.
+
+    ```dart
+    class ExampleInterceptor extends ClientInterceptor {
+      @override
+      ResponseFuture<R> interceptUnary<Q, R>(
+          ClientMethod<Q, R> method, ServiceCall call, Q request, CallOptions options, ClientUnaryInvoker<Q, R> invoker) {
+        print('Intercepting request: $request');
+        return invoker(method, call, request, options);
+      }
+    }
+
+    final channel = ClientChannel(
+      'localhost',
+      port: 50051,
+      options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+      interceptors: [ExampleInterceptor()],
+    );
+    ```
+
+ Auth Interceptor example:
+
+ ```dart
+  class AuthInterceptor extends ClientInterceptor {
+    final String token;
+  
+    AuthInterceptor(this.token);
+  
+    @override
+    ResponseFuture<R> interceptUnary<Q, R>(
+        ClientMethod<Q, R> method, ServiceCall call, Q request, CallOptions options, ClientUnaryInvoker<Q, R> invoker) {
+      final metadata = {
+        'authorization': 'Bearer $token',
+      };
+      final newCall = call.change(metadata: metadata);
+      return invoker(method, newCall, request, options);
+    }
   }
-}
+
+  final channel = ClientChannel(
+    'localhost',
+    port: 50051,
+    options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
+    interceptors: [AuthInterceptor('your_token')],
+  );
+
+  ```
+
+ examples of gRPC interceptors can be found in the [gRPC Dart documentation](https://grpc.io/docs/guides/interceptors/).
+
+### Middleware
+
+gRPC middleware provides a way to add custom logic to gRPC services, such as logging, tracing, and monitoring. Middleware can be applied to individual methods or the entire service.
+
+### Streaming and Real-time Communication
+
+gRPC supports bidirectional streaming, enabling real-time communication between client and server. This can be used for chat applications, live data feeds, and other scenarios requiring continuous data exchange.
+
+### Performance Optimization
+
+To optimize gRPC performance, consider using features such as connection pooling, compression, and caching. These can help reduce latency and improve overall system efficiency.
+
+### Testing and Debugging
+
+Use tools like `grpc_cli` for testing gRPC services, and debuggers like `Dart DevTools` for debugging Dart gRPC applications. These tools can help identify and resolve issues during development and testing.
+
+## Video
+  
+  [![What is gRPC](https://img.youtube.com/vi/gnchfOojMk4/0.jpg)](https://www.youtube.com/watch?v=gnchfOojMk4)
+
+  [![Intro to gRPC in C# - How To Get Started](https://img.youtube.com/vi/QyxCX2GYHxk/0.jpg)](https://www.youtube.com/watch?v=QyxCX2GYHxk)
+
+  [![gRPC Service with .Net7](https://img.youtube.com/vi/Rqz9XiSqH3E/0.jpg)](https://www.youtube.com/watch?v=Rqz9XiSqH3E)
